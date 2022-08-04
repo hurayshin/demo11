@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>작성글 보기</title>
+</head>
+<body>
+<h1>게시판</h1>
+<!--    <form th:action="@{/boards}" th:object="${boardList}" method="get">-->
+<!--        <div>-->
+<!--            <label>-->
+<!--                <input type="text" th:field="*{userid}" th:value="*{userid}" > &lt;!&ndash; &ndash;&gt;-->
+<!--            </label>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <label>-->
+<!--                <textarea th:field="*{content}"> </textarea>-->
+<!--            </label>-->
+<!--        </div>-->
+        <table>
+            <thead>
+            <tr>
+                <th>유저이름</th>
+                <th>글 내용</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="board: ${boardList}">
+                    <td th:text="${board.userId}"></td>
+                    <td th:text="${board.content}"></td>
+    <!--                    <textarea th:field="*{board.content}"></textarea>-->
+                </tr>
+            </tbody>
+        </table>
+
+    <a href="boards/register"> <button>글쓰기</button></a>
+<!--    </form>-->
+</body>
+</html>
+
+

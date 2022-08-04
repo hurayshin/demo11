@@ -1,20 +1,21 @@
 package com.example.demo11.Entity;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Getter
 @Entity
+@Setter
 @NoArgsConstructor
-public class User {
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer UserId;
-    private String Password;
-    private String Nickname;
-    private String Email;
+    private Integer userId;
+    private String password;
+    private String nickname;
+    private String email;
 }

@@ -1,5 +1,6 @@
 package com.example.demo11.Service;
 
+import com.example.demo11.Dto.BoardListDto;
 import com.example.demo11.Entity.Board;
 import com.example.demo11.Repository.BoardRepository;
 import org.springframework.data.domain.Sort;
@@ -19,11 +20,13 @@ public class BoardService {
         this.boardRepository = boardRepository;
     }
 
-    public void register(Board board) {
-        boardRepository.save(board);
-    }
+    //controller get에 대한 list 값이 없는데..?
+
     public List<Board> list() {
-        return boardRepository.findAll(Sort.by(Sort.Direction.DESC));
+        return boardRepository.findAll();
+    }
+    public void register(BoardListDto boardListDto) {
+        boardRepository.save(new Board());
     }
     public Board detail(long id) {
         return boardRepository.findById(id).orElse(null);
@@ -36,3 +39,4 @@ public class BoardService {
         boardRepository.deleteById(id);
     }
 }
+

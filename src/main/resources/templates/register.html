@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>글쓰기 등록화면</title>
 </head>
 <body>
+<h1> form데이터입니다</h1>
+<form method="post" th:action="@{/boards/register}" th:object="${boardListDto}">
+<textarea th:field="*{content}"></textarea>
+<button type="submit">등록</button>
+</form>
 
+
+<!--<script>-->
+<!--    function onsubmit() {-->
+<!--        onsubmit();-->
+<!--    }-->
+<!--</script>-->
 </body>
 </html>
