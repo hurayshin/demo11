@@ -15,17 +15,9 @@ public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String writer;
+    private String title;
+    private String UserId;
     private String content;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    private Reply reply;
-    //reply는 일대다로 조인해서 가져온다
-    //reply entity도 만든다.
-
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
-
 }

@@ -5,6 +5,9 @@ import lombok.Data;
 
 @Data
 public class UserDto {
-    private Integer id;
+    private Long id;
+    private String writer;
     private String Password;
+    //UserDto는 user registDto
+    //등록할 때 받는 데이터타입들
 }
