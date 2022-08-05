@@ -1,7 +1,8 @@
 package com.example.demo11.Service;
 
-import com.example.demo11.Dto.BoardListDto;
+import com.example.demo11.Dto.BoardRegisterDto;
 import com.example.demo11.Entity.Board;
+import com.example.demo11.Mapper.BoardMapper;
 import com.example.demo11.Repository.BoardRepository;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ public class BoardService {
 
     public BoardService(BoardRepository boardRepository) {
         this.boardRepository = boardRepository;
+
     }
 
     //controller get에 대한 list 값이 없는데..?
@@ -25,9 +27,23 @@ public class BoardService {
     public List<Board> list() {
         return boardRepository.findAll();
     }
-    public void register(BoardListDto boardListDto) {
-        boardRepository.save(new Board());
+
+    //Dto, entity,
+    public void register(BoardRegisterDto boardRegisterDto) {
+        Board board = new Board();
+        board.setContent(boardRegisterDto.getContent());
+        board.setId(boardRegisterDto.getId());
+        board.setTitle(boardRegisterDto.getTitle());
+        board.setUserId(boardRegisterDto.getUserId());
+        boardRepository.save(board);
     }
+    // 등록할 때 RegistDto로 받아야 하는지..?
+
+//    site.setIsEnabled(true);
+//    Site saved = siteRepository.save(site);
+//
+//        return siteMapper.toDetailDto(saved);
+
     public Board detail(long id) {
         return boardRepository.findById(id).orElse(null);
     }

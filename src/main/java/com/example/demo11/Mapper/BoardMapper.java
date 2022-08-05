@@ -1,13 +1,19 @@
 package com.example.demo11.Mapper;
 
 
+import com.example.demo11.Dto.BoardListDto;
+import com.example.demo11.Dto.BoardRegisterDto;
+import com.example.demo11.Entity.Board;
 import org.mapstruct.Mapper;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 //@Mapper
+@Mapper(componentModel = "spring")
 public interface BoardMapper {
+
+    Board toEntity(BoardRegisterDto boardRegisterDto);
+
+
+
 
     //원래는 private로 선언해줘야 하지만, Entity에서 builder로 보내는 패턴을 안정시켰기 때문에, mapper로 받을 때 public으로 받아도
     //구조상 문제가 없다고 한다. 보낼 때 혹은 받을 때 체크하는 방식인데, mapstruct는 entity에 가까운 처리방식을 선호하는 것으로 보인다.

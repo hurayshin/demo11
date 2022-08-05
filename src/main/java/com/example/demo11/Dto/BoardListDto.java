@@ -1,17 +1,25 @@
 package com.example.demo11.Dto;
 
 
-import lombok.Data;
 
-@Data
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.validation.constraints.NotEmpty;
+
+@Getter
+@Setter
+@NoArgsConstructor
 public class BoardListDto {
     //entity와 formdata가 있을 때
     //form에서는 글내용(body), 작성자(writer), 글번호(ID), 댓글번호(reply.Id)notempty
-    //본문 글자수 제한을 DB에서 넣지말고 Dto에서...
-
+    //본문 글자수 제한을 DB에서 넣지말고 Dto
     private Long id;
     private String title;
-    private Integer userid;
+    private String userId;
+    @NotEmpty
     private String content;
 
     //userId join해서 가져오기

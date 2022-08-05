@@ -7,11 +7,23 @@
 </head>
 <body>
 <h1> form데이터입니다</h1>
-<form method="post" th:action="@{/boards/register}" th:object="${boardListDto}">
-<textarea th:field="*{content}"></textarea>
-<button type="submit">등록</button>
+<form method="post" th:action="@{/boards/register}" th:object="${boardRegisterDto}">
+    <div>
+       <input type="text" th:field="*{title}"> 제목
+    </div>
+    <div>
+        <input type="text" th:field="*{userId}"> autoid.. 회원가입과 고유키가 없음
+    </div>
+<!--    <div>-->
+<!--        <input type="text" th:field="*{password}"> 수정삭제 권한 비밀번호-->
+<!--    </div>-->
+    <div>
+        <textarea th:field="*{content}" placeholder="내용을 입력하세요."></textarea>
+    </div>
+    <div>
+        <button type="submit">등록</button>
+    </div>
 </form>
-
 
 <!--<script>-->
 <!--    function onsubmit() {-->
