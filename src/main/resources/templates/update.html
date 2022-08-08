@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>글 수정화면</title>
+    <title>수정페이지</title>
 </head>
 <body>
+<form th:action="@{'/post/update/' + ${boardListDto.id}}" method="post">
+    <input type="hidden" th:value="${boardListDto.id}">
 
+    제목 : <input type="text" th:value="${boardDto.title}">
+    작성자 : <input type="text" th:value="${boardDto.userId}">
+    <textarea th:text="${boardListDto.content}"></textarea>
+    <button type="submit"> </button>
+
+<!--    th:value로 지정..  onclick : ongo 수동지정.. 자동으로 지정하는 방법찾아야 함함-->
+</form>
 </body>
 </html>

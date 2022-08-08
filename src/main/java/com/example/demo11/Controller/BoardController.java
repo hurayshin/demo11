@@ -25,8 +25,8 @@ public class BoardController {
 
     @GetMapping("/detail/{id}")
     public String boardDetail(@PathVariable long id, Model model) {
-        model.addAttribute("board", boardService.detail(id));
-        return "/detail";
+        model.addAttribute("boardDetail", boardService.detail(id));
+        return "/boardDetail";
     }
     // 글목록boardDto --> boarddetaildto
 
@@ -49,14 +49,14 @@ public class BoardController {
 
 //    @GetMapping("/update/{id}")
 //    public String updateGet(@PathVariable long id, Model model) {
-//        model.addAttribute("board", boardService.detail(id));
+//        model.addAttribute("boardUpdate", boardService.
 //        return "update";
 //    }
-//    @PostMapping("/update")
-//    public String updatePost(Board board) {
-//        boardService.update(board);
-//        return "redirect:/boards";
-//    }
+    @PostMapping("/update")
+    public String updatePost(Board board) {
+        boardService.update(board);
+        return "redirect:/boards";
+    }
 //
 //    @GetMapping("/delete/{id}")
 //    public String delete(@PathVariable long id) {

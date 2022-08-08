@@ -6,8 +6,10 @@ package com.example.demo11.Dto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotEmpty;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -21,6 +23,10 @@ public class BoardListDto {
     private String userId;
     @NotEmpty
     private String content;
+    @DateTimeFormat(pattern = "yy-MM-dd")
+    private LocalDateTime createdAt;
+    @DateTimeFormat(pattern = "yy-MM-dd")
+    private LocalDateTime updatedAt;
 
     //userId join해서 가져오기
     // BoardDto가 리스트 나오는 페이지  =boardDto = listDto =mainlist, mainpage
