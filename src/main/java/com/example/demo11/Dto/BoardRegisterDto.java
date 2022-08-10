@@ -1,5 +1,7 @@
 package com.example.demo11.Dto;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -8,8 +10,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@ToString
-@NoArgsConstructor
+@JsonNaming(value = PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class BoardRegisterDto {
 
     private Long id;

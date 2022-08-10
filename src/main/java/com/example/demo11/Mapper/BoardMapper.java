@@ -1,8 +1,7 @@
 package com.example.demo11.Mapper;
 
 
-import com.example.demo11.Dto.BoardListDto;
-import com.example.demo11.Dto.BoardRegisterDto;
+import com.example.demo11.Dto.BoardDetailDto;
 import com.example.demo11.Entity.Board;
 import org.mapstruct.Mapper;
 
@@ -10,8 +9,8 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface BoardMapper {
 
-    Board toEntity(BoardRegisterDto boardRegisterDto);
 
+    BoardDetailDto toDetailDto(Board saved);
 
 
 

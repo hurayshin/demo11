@@ -9,8 +9,10 @@ import java.util.Optional;
 @Repository
 public interface BoardRepository extends JpaRepository<Board, Long> {
 //    Optional<Board> getBoardById(Long id);
-    Optional<Board> getAllById(Long id);
-    Board findAllById (Long id);
+//    Optional<Board> getAllById(Long id);
+//    Optional<Board> get
+//    Board findAllById (Long id);
+
 
 
 

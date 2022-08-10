@@ -1,23 +1,27 @@
 package com.example.demo11.Service;
 
+import com.example.demo11.Dto.BoardDetailDto;
 import com.example.demo11.Dto.BoardRegisterDto;
 import com.example.demo11.Entity.Board;
+import com.example.demo11.Mapper.BoardMapper;
 import com.example.demo11.Repository.BoardRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class BoardService {
     //service 단에 DTO처럼 로직을 가져오지 말라고 하셨으니까 list와 findall을 사용하면 될 것 같다다
     //repository에서 저장 수정 데이터 보관..
 //    private final BoardRepository boardRepository;
 
     private final BoardRepository boardRepository;
+//    private final BoardMapper boardMapper;
 
-    public BoardService(BoardRepository boardRepository) {
-        this.boardRepository = boardRepository;
-    }
 
     //controller get에 대한 list 값이 없는데..?
 
@@ -38,15 +42,19 @@ public class BoardService {
     }
     // 등록할 때 RegistDto로 받아야 하는지..?
 
-    public Board detail(long id){
-        return boardRepository.findAllById(id);
+    public BoardDetailDto boardDetail(Long boardId){
+        Board board = boardRepository.findById(boardId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        // return boardMapper.toDetailDto(board);
+        return null;
     }
     //repository에서 boardId로 list를 받으면 될 것..
 
     public void update (Board board) {
         boardRepository.save(board);
     }
-    public void delete (long id) {
+    public void delete (Long id) {
         boardRepository.deleteById(id);
     }
 }

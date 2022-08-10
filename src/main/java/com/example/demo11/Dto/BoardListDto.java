@@ -3,6 +3,7 @@ package com.example.demo11.Dto;
 
 
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,7 +14,6 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@NoArgsConstructor
 public class BoardListDto {
     //entity와 formdata가 있을 때
     //form에서는 글내용(body), 작성자(writer), 글번호(ID), 댓글번호(reply.Id)notempty

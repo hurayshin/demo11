@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class BoardController {
     private final BoardService boardService;
+
     @GetMapping
     public String list(Model model) {
         model.addAttribute("boardList", boardService.list());
@@ -23,9 +24,9 @@ public class BoardController {
     }
     //modal창 만들어서 new instance, 객체로 등록데이터를 보내기.
 
-    @GetMapping("/detail/{id}")
-    public String boardDetail(@PathVariable long id, Model model) {
-        model.addAttribute("boardDetail", boardService.detail(id));
+    @GetMapping("/detail/{boardId}")
+    public String boardDetail(@PathVariable Long boardId, Model model) {
+        model.addAttribute("boardDetail", boardService.boardDetail(boardId));
         return "/boardDetail";
     }
     // 글목록boardDto --> boarddetaildto

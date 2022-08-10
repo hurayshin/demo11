@@ -26,23 +26,9 @@ public class Board {
 
 
     // get값도 넣어주자.. 타임리프가 인식을 못 한다..
-    public void setContent() {
-    }
 
-    public void setId() {
-    }
 
-    public void setTitle() {
-    }
 
-    public void setCreatedAt() {
-    }
-
-    public void setUpdatedAt() {
-    }
-
-    public void setUserId() {
-    }
 
 //    @Builder
 //    public Board(Long id, String title, String userId, String content, LocalDateTime createdAt, LocalDateTime updatedAt) {
